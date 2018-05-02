@@ -133,6 +133,7 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
         rb_Date = new javax.swing.JRadioButton();
         chk_Customer_Name = new javax.swing.JCheckBox();
         chk_Receipt_No = new javax.swing.JCheckBox();
+        rb_Status = new javax.swing.JRadioButton();
         jPanel_Total = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txt_Total_amount = new javax.swing.JTextField();
@@ -208,6 +209,14 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(rb_Status);
+        rb_Status.setText("Status");
+        rb_Status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_StatusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_SearchByLayout = new javax.swing.GroupLayout(jPanel_SearchBy);
         jPanel_SearchBy.setLayout(jPanel_SearchByLayout);
         jPanel_SearchByLayout.setHorizontalGroup(
@@ -215,17 +224,19 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
             .addGroup(jPanel_SearchByLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rb_Date)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(chk_Receipt_No)
                 .addGap(18, 18, 18)
                 .addComponent(chk_Customer_Name)
-                .addGap(27, 27, 27)
+                .addGap(10, 10, 10)
+                .addComponent(rb_Status)
+                .addGap(18, 18, 18)
                 .addComponent(rb_Jewellery)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(rb_Ornament)
                 .addGap(18, 18, 18)
                 .addComponent(rd_All, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_SearchByLayout.setVerticalGroup(
             jPanel_SearchByLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +248,8 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
                     .addComponent(rb_Ornament)
                     .addComponent(rb_Date)
                     .addComponent(chk_Customer_Name)
-                    .addComponent(chk_Receipt_No))
+                    .addComponent(chk_Receipt_No)
+                    .addComponent(rb_Status))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -394,12 +406,12 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
                                 .addGap(341, 341, 341))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel_SearchBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel_SearchBy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jPanel_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
@@ -428,9 +440,9 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel_DateRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_Select)
                             .addComponent(cb_Select, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -550,6 +562,12 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
             {
                 String oname = cb_Select.getSelectedItem().toString();
                 query = "Select * from mortgage_entry where ornament_type = '"+oname+"'order by entry_date";
+            }
+            
+            else if(rb_Status.isSelected())
+            {
+                String status = cb_Select.getSelectedItem().toString();
+                query = "Select * from mortgage_entry where status = '"+status+"'order by entry_date";
             }
             
             else                                                                //FOR VIEW ALL
@@ -675,6 +693,23 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void rb_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_StatusActionPerformed
+        // TODO add your handling code here:
+        clear();
+        cb_Select.enable(true);
+        jPanel_DateRange.setEnabled(false);
+        jDateChooser1.setEnabled(false);
+        jDateChooser2.setEnabled(false);
+        cb_Select.setSelectedIndex(0);
+        lbl_Select.setText("Select Status:");
+        chk_Receipt_No.setSelected(false);
+        chk_Customer_Name.setSelected(false);
+        cb_Select.removeAllItems();
+        cb_Select.addItem("Select");
+        cb_Select.addItem("Returned");
+        cb_Select.addItem("Yet to Return");
+    }//GEN-LAST:event_rb_StatusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -732,6 +767,7 @@ public class Search_Mortgage_Entry extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_Date;
     private javax.swing.JRadioButton rb_Jewellery;
     private javax.swing.JRadioButton rb_Ornament;
+    private javax.swing.JRadioButton rb_Status;
     private javax.swing.JRadioButton rd_All;
     private javax.swing.JTable table_Mortgage;
     private javax.swing.JTextField txt_Total_amount;
