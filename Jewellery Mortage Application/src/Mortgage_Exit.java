@@ -91,6 +91,7 @@ public class Mortgage_Exit extends javax.swing.JFrame {
         txt_interest_rate.setText("");
         txt_jewellery_type.setText("");
         txt_total_amt.setText("");
+        txt_Status.setText("");
     }
     
     /**
@@ -136,6 +137,8 @@ public class Mortgage_Exit extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txt_interest_rate = new javax.swing.JTextField();
         lbl_refresh = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txt_Status = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mortgage Exit");
@@ -285,6 +288,10 @@ public class Mortgage_Exit extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Status:");
+
+        txt_Status.setEditable(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -315,10 +322,14 @@ public class Mortgage_Exit extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txt_amt_given, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_interest_due, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_Status)
+                                    .addComponent(txt_interest_due, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -339,24 +350,26 @@ public class Mortgage_Exit extends javax.swing.JFrame {
                                         .addGap(16, 16, 16))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txt_interest_rate, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                                        .addComponent(txt_total_amt))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(35, 35, 35)
-                        .addComponent(jDateChooser_entryDate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_refresh)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15))
-                        .addGap(187, 187, 187)))
+                                        .addComponent(txt_total_amt))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lbl_refresh)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel14)
+                                                    .addComponent(jLabel15))
+                                                .addGap(187, 187, 187))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel6)
+                                                .addGap(35, 35, 35)
+                                                .addComponent(jDateChooser_entryDate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txt_jewellery_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,10 +399,14 @@ public class Mortgage_Exit extends javax.swing.JFrame {
                     .addComponent(txt_interest_due, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_refresh)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(txt_Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jDateChooser_entryDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(21, 21, 21)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(lbl_refresh)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmd_back)
                     .addComponent(cmd_clear)
@@ -478,6 +495,7 @@ public class Mortgage_Exit extends javax.swing.JFrame {
                      tamt = amt_given + interest;
                      txt_interest_due.setText(""+interest);
                      txt_total_amt.setText(""+tamt);
+                     txt_Status.setText(rs2.getString("status"));
                 }
                 else
                 {
@@ -505,7 +523,11 @@ public class Mortgage_Exit extends javax.swing.JFrame {
         // TODO add your handling code here:
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String receipt_date = sdf.format(jDateChooser_receiptDate.getDate());
-         if(txt_rno.getText().equals("") || receipt_date.equals("") || cb_customer.getSelectedItem().equals("Select")  || txt_total_amt.getText().equals(""))
+        if(txt_Status.getText().equals("Returned"))
+        {
+             JOptionPane.showMessageDialog(this,"Selected item has already been returned!");
+        }
+        else if(txt_rno.getText().equals("") || receipt_date.equals("") || cb_customer.getSelectedItem().equals("Select")  || txt_total_amt.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this,"Please select/enter data in all fields !");
         }
@@ -520,6 +542,8 @@ public class Mortgage_Exit extends javax.swing.JFrame {
                 int debit_id = mf.debit_mid();
                 String query = "Insert into mortgage_exit values("+debit_id+","+mid+","+cid+",'"+ entryDate +"','"+ txt_interest_due.getText() +"')";
                 int r = stmt.executeUpdate(query);
+                String query2 = "update mortgage_entry set status = 'Returned' where mid = '"+ mid +"' ";
+                int s = stmt.executeUpdate(query2);
                 JOptionPane.showMessageDialog(this,"Details added !");
                 int cnf = JOptionPane.showConfirmDialog(this,"Do you want to clear all the fields ?","Confirm",JOptionPane.YES_NO_OPTION);
                 if(cnf == 0)
@@ -601,6 +625,7 @@ public class Mortgage_Exit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -609,6 +634,7 @@ public class Mortgage_Exit extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Ornament_type;
     private javax.swing.JTextField txt_Other_info;
     private javax.swing.JTextField txt_Purity;
+    private javax.swing.JTextField txt_Status;
     private javax.swing.JTextField txt_Weight;
     private javax.swing.JTextField txt_amt_given;
     private javax.swing.JTextField txt_interest_due;
